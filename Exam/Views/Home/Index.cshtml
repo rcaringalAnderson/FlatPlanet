@@ -1,0 +1,33 @@
+﻿@model Exam.Models.Counter
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+</head>
+<body>
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { name = "ButtonForm" }))
+{
+    <p> Click the Button Below </p>
+    @Html.ValidationMessage("Error")
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.counter, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.counter, new { htmlAttributes = new { @name= "labelButton", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.counter, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <input type="submit" name="myButton" value="Click Here until it exceeds 10">
+}
+
+
+    </body>
+</html>
